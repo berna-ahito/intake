@@ -120,7 +120,14 @@ export default function SubmissionDetail() {
   const canApprove = hasExtraction && !isApproved && !isSynced;
   const canSync = hasExtraction && ['approved', 'crm_ready'].includes(submission.status);
   const missingFields = submission.extracted_data?.missing_fields || [];
-  const highRisk = (submission.duplicate_risk || 0) > 0.7;
+  const duplicateRisk = submission.duplicate_risk;
+  const duplicateRiskPercent = typeof duplicateRisk === 'number' ? (duplicateRisk * 100).toFixed(0) : null;
+  const duplicateRiskTone = typeof duplicateRisk === 'number' && duplicateRisk > 0.7
+    ? 'bg-red-50 text-red-800 border-red-200'
+    : 'bg-slate-50 text-slate-700 border-slate-200';
+  const duplicateRiskLabel = typeof duplicateRisk === 'number' && duplicateRisk > 0.7
+    ? 'High duplicate risk'
+    : 'Duplicate risk signal';
 
   return (
     <div className="space-y-6 pb-12">
@@ -232,14 +239,20 @@ export default function SubmissionDetail() {
                 </ul>
               </div>
             )}
-            {highRisk && (
-              <div className="mb-4 bg-red-50 text-red-800 p-3 rounded border border-red-200 text-sm font-medium flex items-center">
+            {typeof duplicateRisk === 'number' && (
+              <div className={`mb-4 p-3 rounded border text-sm font-medium flex items-center ${duplicateRiskTone}`}>
                 <AlertTriangle className="h-4 w-4 mr-2" />
-                High Duplicate Risk ({(submission.duplicate_risk! * 100).toFixed(0)}%)
+                {duplicateRiskLabel} ({duplicateRiskPercent}%)
               </div>
             )}
 
             <form className="space-y-4">
+              <div>
+                <h4 className="text-sm font-semibold text-slate-800">Key reviewer fields</h4>
+                <p className="text-xs text-slate-500 mt-1">
+                  Edit the core CRM fields before explicit approval.
+                </p>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-slate-700">Company Name</label>
                 <input

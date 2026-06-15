@@ -1,9 +1,10 @@
 import json
-from sqlalchemy.orm import Session
 from app.db.session import SessionLocal, engine, Base
+from app.db.schema import ensure_sqlite_contract_columns
 from app.db.models import Submission, AuditLog
 
 Base.metadata.create_all(bind=engine)
+ensure_sqlite_contract_columns(engine)
 
 seeds = [
     {
@@ -15,7 +16,7 @@ seeds = [
         "raw_content": "Hey team, just had a great call with Sarah from Global Industries. They want to move fast (ASAP) and have about 50k to spend. Can someone follow up? email is sarah@global.ind",
     },
     {
-        "source": "partner",
+        "source": "partner_referral",
         "raw_content": "Partner Referral from AgencyX.\nLead: Mike Ross, Pearson Specter.\nNotes: Great lead, very interested in your services. Please contact him.",
     },
     {
@@ -35,7 +36,7 @@ seeds = [
         "raw_content": "Hi, i need sumthing idk what u guys do rly but call me 555-8888",
     },
     {
-        "source": "upload",
+        "source": "other",
         "raw_content": "Attached file: proposal.pdf\nExtracted text: We are proposing a merger. ACME corp. Confidential.",
     }
 ]
