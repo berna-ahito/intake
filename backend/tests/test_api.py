@@ -10,6 +10,7 @@ from sqlalchemy.orm import sessionmaker
 
 from app.main import app
 from app.db.session import Base, get_db
+from seed import seeds
 
 
 engine = create_engine(
@@ -77,6 +78,15 @@ def test_valid_source_values_work(source):
     assert submission["source"] == source
     assert submission["status"] == "pending"
     assert submission["crm_sync_status"] == "not_synced"
+
+
+def test_seed_source_values_match_api_contract():
+    for seed in seeds:
+        submission = create_submission(
+            source=seed["source"],
+            raw_content=seed["raw_content"],
+        )
+        assert submission["source"] == seed["source"]
 
 
 def test_invalid_source_value_fails():

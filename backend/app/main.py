@@ -1,35 +1,22 @@
-from fastapi import FastAPI
+from pathlib import Path
+
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 
 from app.core.config import settings
 from app.db.session import engine, Base
+from app.db.schema import ensure_sqlite_contract_columns
 from app.routers import health, submissions, audit
 
-
-def ensure_sqlite_contract_columns():
-    if engine.dialect.name != "sqlite":
-        return
-
-    columns = {
-        "crm_id": "crm_id VARCHAR",
-        "crm_sync_status": "crm_sync_status VARCHAR NOT NULL DEFAULT 'not_synced'",
-        "crm_synced_at": "crm_synced_at DATETIME",
-        "crm_sync_error": "crm_sync_error VARCHAR",
-    }
-
-    with engine.begin() as connection:
-        existing = {
-            row[1]
-            for row in connection.exec_driver_sql("PRAGMA table_info(submissions)").fetchall()
-        }
-        for column_name, ddl in columns.items():
-            if column_name not in existing:
-                connection.exec_driver_sql(f"ALTER TABLE submissions ADD COLUMN {ddl}")
+FRONTEND_DIST_DIR = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+FRONTEND_INDEX = FRONTEND_DIST_DIR / "index.html"
 
 
 # Create database tables
 Base.metadata.create_all(bind=engine)
-ensure_sqlite_contract_columns()
+ensure_sqlite_contract_columns(engine)
 
 app = FastAPI(title=settings.PROJECT_NAME, redirect_slashes=False)
 app.router.redirect_slashes = False
@@ -46,6 +33,22 @@ app.include_router(health.router, prefix="/api/health", tags=["health"])
 app.include_router(submissions.router, prefix="/api/submissions", tags=["submissions"])
 app.include_router(audit.router, prefix="/api/audit", tags=["audit"])
 
-@app.get("/")
-def root():
-    return {"message": "Welcome to Intake API"}
+if FRONTEND_INDEX.exists():
+    assets_dir = FRONTEND_DIST_DIR / "assets"
+    if assets_dir.exists():
+        app.mount("/assets", StaticFiles(directory=assets_dir), name="frontend-assets")
+
+    @app.get("/{full_path:path}", include_in_schema=False)
+    def serve_frontend(full_path: str):
+        if full_path.startswith("api/"):
+            raise HTTPException(status_code=404, detail="Not found")
+
+        requested_path = FRONTEND_DIST_DIR / full_path
+        if requested_path.is_file():
+            return FileResponse(requested_path)
+
+        return FileResponse(FRONTEND_INDEX)
+else:
+    @app.get("/")
+    def root():
+        return {"message": "Welcome to Intake API"}

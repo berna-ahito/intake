@@ -15,7 +15,7 @@ Intake consists of a FastAPI backend and a React/Vite frontend.
 
 ## Data Flow
 1. Messy submissions (text, emails) are sent to the backend.
-2. The AI Service parses the unstructured text and returns a structured record with confidence scores.
+2. The mock AI service parses the unstructured text and returns a structured record with confidence scores.
 3. The extracted record is saved in a "Pending" status.
 4. A human reviewer uses the frontend to inspect the extracted data, make corrections, and approve the record.
 5. The approved record can be simulated to sync to a CRM.

@@ -30,6 +30,16 @@ Phase 2 frontend UI integration for the Intake AI project.
    npm run dev
    ```
 
+## Production Build
+
+For the portfolio deployment, Vite builds static files into `frontend/dist`:
+
+```bash
+npm run build
+```
+
+The FastAPI backend serves that built folder in production. Local development should still use the Vite dev server and the backend API separately.
+
 ## Integrations
 
 - All AI extractions are currently **simulated** by the backend mock provider.

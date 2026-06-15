@@ -5,7 +5,6 @@ import SubmissionsList from './pages/SubmissionsList';
 import NewSubmission from './pages/NewSubmission';
 import SubmissionDetail from './pages/SubmissionDetail';
 import CrmPipeline from './pages/CrmPipeline';
-import './App.css';
 
 function App() {
   return (

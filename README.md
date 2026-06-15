@@ -34,14 +34,40 @@ Current mocked behavior and Phase 1 limitations:
 - Notifications are planned or stubbed and are not wired to email, Slack, or other channels.
 
 Stack:
-- Backend: FastAPI, SQLAlchemy, Pydantic, SQLite (development)
+- Backend: FastAPI, SQLAlchemy, Pydantic, SQLite for local development
 - Frontend: React, Vite, TypeScript, Tailwind CSS
-- Testing: Pytest (Backend)
+- Testing: Pytest for backend, Node test runner for the frontend API client
 
-Try the demo:
-1. Run the backend server
-2. Run the frontend dev server
-3. Navigate to the UI to see seeded lead submissions and test the review pipeline
+Local development:
+1. Create a backend virtual environment and install dependencies:
+   ```bash
+   cd backend
+   pip install -r requirements.txt
+   ```
+2. Start the backend API:
+   ```bash
+   uvicorn app.main:app --reload
+   ```
+3. Install frontend dependencies and start Vite in a separate terminal:
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
+4. Open the Vite URL and test the review pipeline. Local frontend development calls the backend API separately.
+
+Portfolio deployment:
+- The repository includes `render.yaml` for one Render web service.
+- Render installs backend dependencies, installs frontend dependencies, builds `frontend/dist`, and starts FastAPI.
+- In production, FastAPI serves the built Vite frontend for non-API routes and keeps API routes under `/api`.
+- Use `/api/health` as the health check path.
+
+Deployment environment variables:
+- `DATABASE_URL`: required. Use SQLite only for local development. For a persistent deployed demo, use a managed Postgres database URL.
+- `ENVIRONMENT`: set to `production` for deployment.
+- `CORS_ORIGINS`: comma-separated allowed origins. For a single-service same-origin Render deployment, set this to the deployed site origin. For local development, the default allows `http://localhost:5173` and `http://127.0.0.1:5173`.
+
+Do not commit secrets. Keep real environment values in Render or local `.env` files only. Render's service filesystem is ephemeral, so SQLite data on the service can be lost across deploys or restarts. Use Postgres through `DATABASE_URL` for persistent portfolio data, or reseed demo data deliberately if persistence is not needed.
 
 Security:
 - No real secrets are committed to the repository (see `.env.example`).
@@ -49,7 +75,8 @@ Security:
 - Every AI extraction, human review, and CRM sync action is recorded in the audit log.
 
 Tests:
-- Backend tests are provided via Pytest. Run `pytest` in the `backend` directory.
+- Backend tests are provided via Pytest. Run `python -m pytest` in the `backend` directory.
+- Frontend tests run with `npm test` in the `frontend` directory.
 
 Project structure:
 - `backend/app/`: Backend application code (FastAPI, database models, services)
