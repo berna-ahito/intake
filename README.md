@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  AI lead intake and CRM review system with mock AI extraction, duplicate risk signals, human review, simulated CRM sync, and audit logging.
+Intake is an AI lead intake and CRM review system. It receives unstructured inbound leads from forms, emails, or partner submissions and processes them into structured records. The system features mock AI extraction with confidence scores, duplicate risk signals, human review, simulated CRM sync, and an audit log.
 </p>
 
 <p align="center">

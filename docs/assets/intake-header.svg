@@ -1,157 +1,214 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
-  <title>Intake Banner</title>
-  <desc>A clean product banner layout showing the Intake AI CRM system features and mock extraction preview.</desc>
   <defs>
+    <!-- Background Gradient -->
     <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#F8FAFC" />
-      <stop offset="100%" stop-color="#F1F5F9" />
+      <stop offset="100%" stop-color="#EFF6FF" />
     </linearGradient>
-    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.05" />
+
+    <!-- Filters for Shadows -->
+    <filter id="shadow-sm" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.04" />
     </filter>
-    <filter id="shadow-lg" x="-10%" y="-10%" width="120%" height="120%">
-      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.08" />
+    <filter id="shadow-md" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#0F172A" flood-opacity="0.06" />
     </filter>
+    <filter id="shadow-lg" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="24" flood-color="#0F172A" flood-opacity="0.08" />
+    </filter>
+    <filter id="glow-cyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="16" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Gradients -->
+    <linearGradient id="primary-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+    <linearGradient id="node-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E293B" />
+    </linearGradient>
+    <linearGradient id="line-grad-1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#CBD5E1" stop-opacity="0.2" />
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0.8" />
+    </linearGradient>
+    <linearGradient id="line-grad-2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#94A3B8" stop-opacity="0.2" />
+    </linearGradient>
   </defs>
 
-  <!-- Banner Background -->
+  <!-- Base Background -->
   <rect width="1200" height="380" rx="24" fill="url(#bg-grad)" stroke="#E2E8F0" stroke-width="1"/>
 
-  <!-- Left Side: Brand -->
-  <g transform="translate(80, 70)">
-    <!-- Logo Mark -->
+  <!-- Background Grid -->
+  <g stroke="#CBD5E1" stroke-width="1" opacity="0.4">
+    <path d="M 0 40 L 1200 40 M 0 80 L 1200 80 M 0 120 L 1200 120 M 0 160 L 1200 160 M 0 200 L 1200 200 M 0 240 L 1200 240 M 0 280 L 1200 280 M 0 320 L 1200 320 M 0 360 L 1200 360" stroke-dasharray="4 4" />
+    <path d="M 100 0 L 100 380 M 200 0 L 200 380 M 300 0 L 300 380 M 400 0 L 400 380 M 500 0 L 500 380 M 600 0 L 600 380 M 700 0 L 700 380 M 800 0 L 800 380 M 900 0 L 900 380 M 1000 0 L 1000 380 M 1100 0 L 1100 380" stroke-dasharray="4 4" />
+  </g>
+
+  <!-- Left: Brand Block -->
+  <g transform="translate(80, 80)">
+    <!-- Logo -->
     <g transform="translate(0, 0)">
-      <rect x="0" y="0" width="48" height="48" rx="12" fill="#E0F2FE" />
-      <path d="M16 26 L22 32 L34 18" stroke="#0284C7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <!-- Sparkle/AI star -->
-      <path d="M 36 6 Q 36 12 42 12 Q 36 12 36 18 Q 36 12 30 12 Q 36 12 36 6" fill="#06B6D4"/>
+      <rect width="64" height="64" rx="16" fill="url(#primary-grad)" filter="url(#shadow-md)" />
+      <!-- Logo Shape -->
+      <path d="M 16 28 L 32 38 L 48 28 L 48 40 C 48 44 44 48 40 48 L 24 48 C 20 48 16 44 16 40 Z" fill="#FFFFFF" opacity="0.95" />
+      <path d="M 16 28 L 32 38 L 48 28 L 32 18 Z" fill="#E0F2FE" />
+      <!-- Spark/Accent -->
+      <path d="M 32 10 L 34 16 L 40 18 L 34 20 L 32 26 L 30 20 L 24 18 L 30 16 Z" fill="#7DD3FC" />
     </g>
 
-    <!-- Wordmark -->
-    <text x="64" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="#0F172A" letter-spacing="-0.5">Intake</text>
+    <text x="88" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="44" font-weight="800" fill="#0F172A" letter-spacing="-1.5">Intake</text>
 
     <!-- Subtitle -->
-    <text x="0" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="600" fill="#1E293B" letter-spacing="-0.5">
-      AI lead <tspan fill="#0284C7">intake</tspan> and CRM review system
+    <text x="0" y="120" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="26" font-weight="700" fill="#1E293B" letter-spacing="-0.5">
+      AI lead intake and CRM review system
     </text>
 
     <!-- Value Line -->
-    <text x="0" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" fill="#475569">
+    <text x="0" y="160" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="500" fill="#475569" letter-spacing="-0.2">
       Turn messy lead submissions into
     </text>
-    <text x="0" y="166" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" fill="#475569">
+    <text x="0" y="188" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="20" font-weight="500" fill="#475569" letter-spacing="-0.2">
       structured CRM-ready records.
     </text>
   </g>
 
-  <!-- Bottom Chips Row -->
-  <g transform="translate(160, 300)">
-    <!-- Chip 1 -->
+  <!-- Right: Product Illustration -->
+  <g transform="translate(560, 40)">
+    <!-- Connection lines -->
+    <g fill="none" stroke-width="3" stroke-linecap="round">
+      <!-- Input to Node -->
+      <path d="M 20 54 C 70 54, 90 130, 130 130" stroke="url(#line-grad-1)" />
+      <path d="M 30 130 C 70 130, 90 130, 130 130" stroke="url(#line-grad-1)" />
+      <path d="M 10 206 C 70 206, 90 130, 130 130" stroke="url(#line-grad-1)" />
+
+      <!-- Node to Output -->
+      <path d="M 230 130 C 270 130, 280 50, 320 50" stroke="url(#line-grad-2)" />
+      <path d="M 230 130 C 270 130, 300 130, 340 130" stroke="url(#line-grad-2)" />
+      <path d="M 230 130 C 270 130, 280 210, 320 210" stroke="url(#line-grad-2)" />
+    </g>
+
+    <!-- Messy Lead Input Cards -->
+    <g transform="translate(-120, 0)">
+      <!-- Messy Card 1 -->
+      <g transform="translate(0, 30)" filter="url(#shadow-md)">
+        <rect width="140" height="48" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <path d="M 16 18 L 100 18 M 16 30 L 60 30" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round" />
+        <circle cx="120" cy="24" r="4" fill="#94A3B8" />
+      </g>
+      <!-- Messy Card 2 -->
+      <g transform="translate(10, 106)" filter="url(#shadow-md)">
+        <rect width="140" height="48" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <path d="M 16 18 L 120 18 M 16 30 L 80 30" stroke="#94A3B8" stroke-width="4" stroke-linecap="round" stroke-dasharray="10 4"/>
+        <circle cx="120" cy="24" r="4" fill="#64748B" />
+      </g>
+      <!-- Messy Card 3 -->
+      <g transform="translate(-10, 182)" filter="url(#shadow-md)">
+        <rect width="140" height="48" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <path d="M 16 18 L 110 18 M 16 30 L 50 30" stroke="#CBD5E1" stroke-width="4" stroke-linecap="round" />
+        <circle cx="120" cy="24" r="4" fill="#94A3B8" />
+      </g>
+    </g>
+
+    <!-- Transformation Node / AI Engine -->
+    <g transform="translate(130, 80)" filter="url(#shadow-lg)">
+      <!-- Node Background Glow -->
+      <circle cx="50" cy="50" r="40" fill="#0284C7" filter="url(#glow-cyan)" opacity="0.3" />
+      <rect width="100" height="100" rx="24" fill="url(#node-grad)" stroke="#38BDF8" stroke-width="2" />
+
+      <!-- Inner detail / Check or extraction symbol -->
+      <circle cx="50" cy="50" r="24" fill="none" stroke="#334155" stroke-width="4" />
+      <path d="M 38 50 L 46 58 L 62 42" fill="none" stroke="#38BDF8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+
+    <!-- Output CRM Records -->
+    <g transform="translate(320, 0)">
+      <!-- Record 1 (Synced) -->
+      <g transform="translate(0, 14)" filter="url(#shadow-md)">
+        <rect width="230" height="72" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <!-- Icon block -->
+        <rect x="16" y="16" width="40" height="40" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        <path d="M 28 36 L 34 42 L 44 32" fill="none" stroke="#0EA5E9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- Text bars -->
+        <rect x="68" y="24" width="80" height="8" rx="4" fill="#1E293B" />
+        <rect x="68" y="40" width="50" height="6" rx="3" fill="#64748B" />
+        <!-- Status Label -->
+        <rect x="160" y="26" width="54" height="20" rx="10" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+        <text x="187" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0284C7" text-anchor="middle">Synced</text>
+      </g>
+
+      <!-- Record 2 (Review) -->
+      <g transform="translate(20, 94)" filter="url(#shadow-lg)">
+        <rect width="230" height="72" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <!-- Icon block -->
+        <rect x="16" y="16" width="40" height="40" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        <path d="M 36 28 L 36 38 M 36 42 L 36 42.5" fill="none" stroke="#64748B" stroke-width="2.5" stroke-linecap="round" />
+        <!-- Text bars -->
+        <rect x="68" y="24" width="90" height="8" rx="4" fill="#1E293B" />
+        <rect x="68" y="40" width="60" height="6" rx="3" fill="#64748B" />
+        <!-- Status Label -->
+        <rect x="160" y="26" width="54" height="20" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1" />
+        <text x="187" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#475569" text-anchor="middle">Review</text>
+      </g>
+
+      <!-- Record 3 (Extracted) -->
+      <g transform="translate(0, 174)" filter="url(#shadow-md)">
+        <rect width="230" height="72" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+        <!-- Icon block -->
+        <rect x="16" y="16" width="40" height="40" rx="10" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" />
+        <path d="M 28 36 L 44 36 M 32 32 L 36 36 L 32 40" fill="none" stroke="#0EA5E9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+        <!-- Text bars -->
+        <rect x="68" y="24" width="70" height="8" rx="4" fill="#1E293B" />
+        <rect x="68" y="40" width="80" height="6" rx="3" fill="#64748B" />
+        <!-- Status Label -->
+        <rect x="156" y="26" width="60" height="20" rx="10" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+        <text x="186" y="40" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="11" font-weight="700" fill="#0284C7" text-anchor="middle">Extracted</text>
+
+        <!-- Low Risk Signal Tag attached to bottom record -->
+        <g transform="translate(160, 58)">
+          <rect width="70" height="20" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow-sm)" />
+          <circle cx="14" cy="10" r="4" fill="#38BDF8" />
+          <text x="24" y="14" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="10" font-weight="700" fill="#475569">Low risk</text>
+        </g>
+      </g>
+    </g>
+  </g>
+
+  <!-- Bottom: Feature Chips Row -->
+  <g transform="translate(80, 310)">
+    <!-- Mock AI extraction -->
     <g transform="translate(0, 0)">
-      <rect width="164" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-      <circle cx="16" cy="18" r="4" fill="#0EA5E9"/>
-      <text x="90" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Mock AI extraction</text>
+      <rect width="174" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow-sm)"/>
+      <circle cx="18" cy="18" r="5" fill="#0EA5E9" />
+      <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#334155">Mock AI extraction</text>
     </g>
-
-    <!-- Chip 2 -->
-    <g transform="translate(180, 0)">
-      <rect width="130" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-      <circle cx="16" cy="18" r="4" fill="#3B82F6"/>
-      <text x="73" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Human review</text>
+    <!-- Human review -->
+    <g transform="translate(186, 0)">
+      <rect width="134" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow-sm)"/>
+      <circle cx="18" cy="18" r="5" fill="#64748B" />
+      <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#334155">Human review</text>
     </g>
-
-    <!-- Chip 3 -->
-    <g transform="translate(326, 0)">
-      <rect width="190" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-      <circle cx="16" cy="18" r="4" fill="#06B6D4"/>
-      <text x="103" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Duplicate risk signal</text>
+    <!-- Duplicate risk signal -->
+    <g transform="translate(332, 0)">
+      <rect width="176" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow-sm)"/>
+      <circle cx="18" cy="18" r="5" fill="#0EA5E9" />
+      <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#334155">Duplicate risk signal</text>
     </g>
-
-    <!-- Chip 4 -->
-    <g transform="translate(532, 0)">
-      <rect width="174" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-      <circle cx="16" cy="18" r="4" fill="#3B82F6"/>
-      <text x="95" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Simulated CRM sync</text>
+    <!-- Simulated CRM sync -->
+    <g transform="translate(520, 0)">
+      <rect width="174" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow-sm)"/>
+      <circle cx="18" cy="18" r="5" fill="#64748B" />
+      <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#334155">Simulated CRM sync</text>
     </g>
-
-    <!-- Chip 5 -->
-    <g transform="translate(722, 0)">
-      <rect width="110" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-      <circle cx="16" cy="18" r="4" fill="#64748B"/>
-      <text x="63" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Audit trail</text>
+    <!-- Audit trail -->
+    <g transform="translate(706, 0)">
+      <rect width="112" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow-sm)"/>
+      <circle cx="18" cy="18" r="5" fill="#94A3B8" />
+      <text x="32" y="23" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="14" font-weight="600" fill="#334155">Audit trail</text>
     </g>
   </g>
-
-  <!-- Right Side: Main Card -->
-  <g transform="translate(680, 40)">
-    <!-- Background Offset Layer -->
-    <rect x="16" y="16" width="340" height="200" rx="16" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" opacity="0.8"/>
-
-    <!-- Foreground Layer -->
-    <g filter="url(#shadow-lg)">
-      <rect x="0" y="0" width="340" height="200" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
-
-      <!-- Card Header -->
-      <path d="M0 16 C0 7.163 7.163 0 16 0 L324 0 C332.837 0 340 7.163 340 16 L340 40 L0 40 Z" fill="#F8FAFC" />
-      <line x1="0" y1="40" x2="340" y2="40" stroke="#F1F5F9" stroke-width="1" />
-      <circle cx="20" cy="20" r="4" fill="#CBD5E1" />
-      <circle cx="34" cy="20" r="4" fill="#CBD5E1" />
-      <circle cx="48" cy="20" r="4" fill="#CBD5E1" />
-      <text x="320" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="end">Lead Inbox</text>
-
-      <!-- Row 1 -->
-      <g transform="translate(16, 56)">
-        <rect width="308" height="36" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
-        <rect x="12" y="12" width="60" height="12" rx="4" fill="#CBD5E1" />
-        <rect x="80" y="12" width="100" height="12" rx="4" fill="#E2E8F0" />
-        <circle cx="290" cy="18" r="4" fill="#3B82F6"/>
-      </g>
-
-      <!-- Row 2 -->
-      <g transform="translate(16, 100)" filter="url(#shadow)">
-        <rect width="308" height="36" rx="6" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1" />
-        <rect x="12" y="12" width="80" height="12" rx="4" fill="#64748B" />
-        <rect x="100" y="12" width="120" height="12" rx="4" fill="#94A3B8" />
-        <circle cx="290" cy="18" r="4" fill="#64748B"/>
-      </g>
-
-      <!-- Row 3 -->
-      <g transform="translate(16, 144)">
-        <rect width="308" height="36" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
-        <rect x="12" y="12" width="50" height="12" rx="4" fill="#CBD5E1" />
-        <rect x="70" y="12" width="110" height="12" rx="4" fill="#E2E8F0" />
-        <circle cx="290" cy="18" r="4" fill="#06B6D4"/>
-      </g>
-    </g>
-  </g>
-
-  <!-- Right Connectors and Chips -->
-  <!-- Synced -->
-  <path d="M 1004 114 L 1040 114" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
-  <g transform="translate(1040, 100)">
-     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#3B82F6" text-anchor="middle">Synced</text>
-  </g>
-
-  <!-- Review -->
-  <path d="M 1004 158 L 1040 158" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
-  <g transform="translate(1040, 144)">
-     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">Review</text>
-  </g>
-
-  <!-- Extracted -->
-  <path d="M 1004 202 L 1040 202" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
-  <g transform="translate(1040, 188)">
-     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#06B6D4" text-anchor="middle">Extracted</text>
-  </g>
-
-  <!-- Low risk -->
-  <path d="M 1004 202 L 1018 202 Q 1024 202 1024 208 L 1024 234 Q 1024 240 1030 240 L 1040 240" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
-  <g transform="translate(1040, 226)">
-     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
-     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#0EA5E9" text-anchor="middle">Low risk</text>
-  </g>
-
 </svg>
