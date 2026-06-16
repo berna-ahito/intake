@@ -22,7 +22,7 @@ function PipelineColumn({ title, items, icon: Icon, color }: PipelineColumnProps
         {items.map(item => (
           <div key={item.id} className="bg-white p-3 rounded-md shadow-sm border border-slate-200">
             <div className="flex justify-between items-start mb-2">
-              <Link to={`/submissions/${item.id}`} className="font-medium text-blue-600 hover:underline text-sm">
+              <Link to={`/submissions/${item.id}`} className="font-medium text-cyan-700 hover:text-cyan-900 hover:underline text-sm">
                 {item.extracted_data?.contact_name || 'Unknown'}
               </Link>
               {typeof item.confidence_score === 'number' && (
@@ -35,7 +35,7 @@ function PipelineColumn({ title, items, icon: Icon, color }: PipelineColumnProps
               {item.extracted_data?.company_name || 'No Company'}
             </div>
             {item.crm_sync_status && (
-              <div className="text-xs bg-purple-50 text-purple-700 px-2 py-1 rounded inline-block mt-2 border border-purple-100">
+              <div className="text-xs bg-cyan-50 text-cyan-800 px-2 py-1 rounded inline-block mt-2 border border-cyan-100">
                 Simulated CRM: {item.crm_sync_status.replace('_', ' ')}
               </div>
             )}
@@ -94,11 +94,22 @@ export default function CrmPipeline() {
 
       {loading ? (
         <div className="p-8 text-center text-slate-500">Loading pipeline...</div>
+      ) : submissions.length === 0 ? (
+        <div className="p-16 text-center bg-white shadow-sm ring-1 ring-slate-200 rounded-lg">
+          <Database className="mx-auto h-12 w-12 text-slate-300 mb-4" />
+          <h3 className="text-sm font-semibold text-slate-900">Pipeline empty</h3>
+          <p className="mt-1 text-sm text-slate-500">Records will appear here once they are extracted and approved.</p>
+          <div className="mt-6">
+            <Link to="/submissions/new" className="inline-flex items-center rounded-md bg-cyan-600 px-3 py-2 text-sm font-semibold text-white shadow-sm shadow-cyan-900/10 hover:bg-cyan-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 transition-colors">
+              Create a sample lead
+            </Link>
+          </div>
+        </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <PipelineColumn title="Needs Review" items={needsReview} icon={AlertTriangle} color="text-yellow-600" />
-          <PipelineColumn title="Approved for Simulated CRM" items={approved} icon={CheckCircle} color="text-green-600" />
-          <PipelineColumn title="Synced to Simulated CRM" items={synced} icon={Database} color="text-purple-600" />
+          <PipelineColumn title="Needs Review" items={needsReview} icon={AlertTriangle} color="text-amber-600" />
+          <PipelineColumn title="Approved for Simulated CRM" items={approved} icon={CheckCircle} color="text-emerald-600" />
+          <PipelineColumn title="Synced to Simulated CRM" items={synced} icon={Database} color="text-cyan-700" />
         </div>
       )}
     </div>

@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import AppLayout from './layouts/AppLayout';
+import Overview from './pages/Overview';
 import Dashboard from './pages/Dashboard';
 import SubmissionsList from './pages/SubmissionsList';
 import NewSubmission from './pages/NewSubmission';
@@ -11,7 +12,8 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<AppLayout />}>
-          <Route index element={<Dashboard />} />
+          <Route index element={<Overview />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="submissions" element={<SubmissionsList />} />
           <Route path="submissions/new" element={<NewSubmission />} />
           <Route path="submissions/:id" element={<SubmissionDetail />} />

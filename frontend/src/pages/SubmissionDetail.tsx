@@ -123,7 +123,7 @@ export default function SubmissionDetail() {
   const duplicateRisk = submission.duplicate_risk;
   const duplicateRiskPercent = typeof duplicateRisk === 'number' ? (duplicateRisk * 100).toFixed(0) : null;
   const duplicateRiskTone = typeof duplicateRisk === 'number' && duplicateRisk > 0.7
-    ? 'bg-red-50 text-red-800 border-red-200'
+    ? 'bg-amber-50 text-amber-800 border-amber-200'
     : 'bg-slate-50 text-slate-700 border-slate-200';
   const duplicateRiskLabel = typeof duplicateRisk === 'number' && duplicateRisk > 0.7
     ? 'High duplicate risk'
@@ -140,11 +140,11 @@ export default function SubmissionDetail() {
           <p className="text-sm text-slate-500 mt-1">ID: {submission.id} • Created: {new Date(submission.created_at).toLocaleString()}</p>
         </div>
         <div className="flex gap-2 flex-wrap">
-          <span className="inline-flex items-center rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-700/10 uppercase">
+          <span className="inline-flex items-center rounded-md bg-cyan-50 px-2 py-1 text-xs font-medium text-cyan-800 ring-1 ring-inset ring-cyan-700/10 uppercase">
             Status: {submission.status.replace('_', ' ')}
           </span>
           {submission.crm_sync_status && (
-            <span className="inline-flex items-center rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-700/10 uppercase">
+            <span className="inline-flex items-center rounded-md bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 ring-1 ring-inset ring-slate-700/10 uppercase">
               Simulated CRM: {submission.crm_sync_status.replace('_', ' ')}
             </span>
           )}
@@ -166,7 +166,7 @@ export default function SubmissionDetail() {
           onClick={handleExtract}
           disabled={actionLoading || !canExtract}
           title={!canExtract ? 'Mock extraction is only available before approval or sync.' : undefined}
-          className="inline-flex items-center px-3 py-2 text-sm font-semibold rounded-md bg-indigo-50 text-indigo-700 hover:bg-indigo-100 disabled:opacity-50 border border-indigo-200"
+          className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-slate-900 text-white hover:bg-slate-800 disabled:opacity-50 border border-slate-900 transition-colors shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600"
         >
           <Bot className="h-4 w-4 mr-2" />
           Run mock AI extraction
@@ -175,7 +175,7 @@ export default function SubmissionDetail() {
           onClick={handleMarkReview}
           disabled={actionLoading || !canReview || submission.status === 'needs_review'}
           title={!hasExtraction ? 'Run mock AI extraction before marking for review.' : undefined}
-          className="inline-flex items-center px-3 py-2 text-sm font-semibold rounded-md bg-yellow-50 text-yellow-800 hover:bg-yellow-100 disabled:opacity-50 border border-yellow-200"
+          className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-amber-50 text-amber-800 hover:bg-amber-100 disabled:opacity-50 border border-amber-200 transition-colors shadow-sm"
         >
           <AlertTriangle className="h-4 w-4 mr-2" />
           Mark needs review
@@ -184,7 +184,7 @@ export default function SubmissionDetail() {
           onClick={handleApprove}
           disabled={actionLoading || !canApprove}
           title={!hasExtraction ? 'Run mock AI extraction before approval.' : undefined}
-          className="inline-flex items-center px-3 py-2 text-sm font-semibold rounded-md bg-green-50 text-green-700 hover:bg-green-100 disabled:opacity-50 border border-green-200"
+          className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-emerald-50 text-emerald-700 hover:bg-emerald-100 disabled:opacity-50 border border-emerald-200 transition-colors shadow-sm"
         >
           <CheckCircle className="h-4 w-4 mr-2" />
           Approve for CRM
@@ -193,7 +193,7 @@ export default function SubmissionDetail() {
           onClick={handleSyncCrm}
           disabled={actionLoading || !canSync}
           title={!canSync ? 'Approve the record before simulated CRM sync.' : undefined}
-          className="inline-flex items-center px-3 py-2 text-sm font-semibold rounded-md bg-purple-50 text-purple-700 hover:bg-purple-100 disabled:opacity-50 border border-purple-200"
+          className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-lg bg-cyan-50 text-cyan-800 hover:bg-cyan-100 disabled:opacity-50 border border-cyan-200 transition-colors shadow-sm"
         >
           <Database className="h-4 w-4 mr-2" />
           Simulated CRM sync
@@ -201,7 +201,7 @@ export default function SubmissionDetail() {
       </div>
 
       {!hasExtraction && (
-        <div className="rounded-md bg-blue-50 p-4 border border-blue-200 text-sm text-blue-800">
+        <div className="rounded-md bg-cyan-50 p-4 border border-cyan-200 text-sm text-cyan-900">
           Run mock AI extraction before saving reviewer corrections, approving for CRM, or syncing to the simulated CRM.
         </div>
       )}
@@ -209,7 +209,7 @@ export default function SubmissionDetail() {
       {/* Main Content Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Left: Raw Content */}
-        <div className="bg-white shadow-sm border border-slate-200 rounded-lg flex flex-col">
+        <div className="bg-white shadow-sm border border-slate-200 rounded-xl flex flex-col hover:shadow-md transition-shadow">
           <div className="border-b border-slate-200 px-4 py-3 bg-slate-50 rounded-t-lg flex justify-between items-center">
             <h3 className="font-semibold text-slate-800">Messy Submission (Source: {submission.source})</h3>
           </div>
@@ -221,7 +221,7 @@ export default function SubmissionDetail() {
         </div>
 
         {/* Right: Extracted Fields & Review */}
-        <div className="bg-white shadow-sm border border-slate-200 rounded-lg flex flex-col">
+        <div className="bg-white shadow-sm border border-slate-200 rounded-xl flex flex-col hover:shadow-md transition-shadow">
           <div className="border-b border-slate-200 px-4 py-3 bg-slate-50 rounded-t-lg flex justify-between items-center">
             <h3 className="font-semibold text-slate-800">Extracted Fields</h3>
             {typeof submission.confidence_score === 'number' && (
@@ -232,7 +232,7 @@ export default function SubmissionDetail() {
           </div>
           <div className="p-4 flex-1 overflow-y-auto h-[400px]">
             {missingFields.length > 0 && (
-              <div className="mb-4 bg-yellow-50 text-yellow-800 p-3 rounded border border-yellow-200 text-sm">
+              <div className="mb-4 bg-amber-50 text-amber-800 p-3 rounded border border-amber-200 text-sm">
                 <p className="font-semibold mb-1">Missing Information:</p>
                 <ul className="list-disc pl-5">
                   {missingFields.map(f => <li key={f}>{f}</li>)}
@@ -260,7 +260,7 @@ export default function SubmissionDetail() {
                   value={editForm.company_name}
                   onChange={e => setEditForm({ ...editForm, company_name: e.target.value })}
                   disabled={!canSaveCorrections}
-                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm disabled:bg-slate-50"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm disabled:bg-slate-50"
                 />
               </div>
               <div>
@@ -270,7 +270,7 @@ export default function SubmissionDetail() {
                   value={editForm.contact_name}
                   onChange={e => setEditForm({ ...editForm, contact_name: e.target.value })}
                   disabled={!canSaveCorrections}
-                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm disabled:bg-slate-50"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm disabled:bg-slate-50"
                 />
               </div>
               <div>
@@ -280,7 +280,7 @@ export default function SubmissionDetail() {
                   value={editForm.email}
                   onChange={e => setEditForm({ ...editForm, email: e.target.value })}
                   disabled={!canSaveCorrections}
-                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm disabled:bg-slate-50"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm disabled:bg-slate-50"
                 />
               </div>
               <div>
@@ -290,7 +290,7 @@ export default function SubmissionDetail() {
                   value={editForm.requested_service}
                   onChange={e => setEditForm({ ...editForm, requested_service: e.target.value })}
                   disabled={!canSaveCorrections}
-                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm disabled:bg-slate-50"
+                  className="mt-1 block w-full rounded-md border-slate-300 shadow-sm focus:border-cyan-500 focus:ring-cyan-500 sm:text-sm disabled:bg-slate-50"
                 />
               </div>
               {!isSynced && (

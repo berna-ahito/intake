@@ -9,6 +9,8 @@ from sqlalchemy.pool import StaticPool
 from sqlalchemy.orm import sessionmaker
 
 from app.main import app
+from app.core.config import Settings
+from app.db.schema import ensure_sqlite_contract_columns
 from app.db.session import Base, get_db
 from seed import seeds
 
@@ -65,6 +67,52 @@ def test_health_endpoint():
     response = client.get("/api/health")
     assert response.status_code == 200
     assert response.json() == {"status": "ok"}
+
+
+def test_development_cors_origins_keep_local_vite_when_env_adds_origin(monkeypatch):
+    monkeypatch.setenv("ENVIRONMENT", "development")
+    monkeypatch.setenv("CORS_ORIGINS", "https://intake.example.com")
+
+    configured = Settings()
+
+    assert configured.cors_origins == [
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        "https://intake.example.com",
+    ]
+
+
+@pytest.mark.parametrize("origin", ["http://localhost:5173", "http://127.0.0.1:5173"])
+def test_submissions_endpoint_allows_local_frontend_origins(origin):
+    response = client.get("/api/submissions", headers={"Origin": origin})
+
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == origin
+
+
+def test_sqlite_contract_rewrites_legacy_source_values_for_cors_response():
+    with engine.begin() as connection:
+        connection.exec_driver_sql(
+            """
+            INSERT INTO submissions (source, raw_content, status, crm_sync_status, created_at)
+            VALUES ('partner', 'Legacy partner lead', 'pending', 'not_synced', CURRENT_TIMESTAMP)
+            """
+        )
+        connection.exec_driver_sql(
+            """
+            INSERT INTO submissions (source, raw_content, status, crm_sync_status, created_at)
+            VALUES ('upload', 'Legacy uploaded lead text', 'pending', 'not_synced', CURRENT_TIMESTAMP)
+            """
+        )
+
+    ensure_sqlite_contract_columns(engine)
+
+    response = client.get("/api/submissions", headers={"Origin": "http://localhost:5173"})
+    sources = {submission["source"] for submission in response.json()}
+
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == "http://localhost:5173"
+    assert {"partner_referral", "csv_import"}.issubset(sources)
 
 
 def test_create_submission_rejects_empty_raw_content():
