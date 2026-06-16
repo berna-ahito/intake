@@ -1,15 +1,23 @@
-<img src="docs/assets/intake-header.svg" alt="Intake AI lead intake and CRM review system" width="100%">
+<p align="center">
+  <img src="docs/assets/intake-header.svg" alt="Intake product header" width="100%">
+</p>
 
-# Intake
+<h1 align="center">Intake</h1>
 
-Turn messy lead submissions into structured CRM-ready records.
+<p align="center">
+  <strong>Turn messy lead submissions into structured CRM-ready records.</strong>
+</p>
 
-Intake is an AI lead intake and CRM review system. It receives unstructured inbound leads from forms, emails, or partner submissions and processes them into structured records. The system features mock AI extraction with confidence scores, duplicate risk signals, a missing-info review process, human approval, simulated CRM sync, and an audit log.
+<p align="center">
+  AI lead intake and CRM review system with mock AI extraction, duplicate risk signals, human review, simulated CRM sync, and audit logging.
+</p>
 
-![Backend Tests](https://img.shields.io/badge/backend_tests-passing-blue)
-![Frontend Tests](https://img.shields.io/badge/frontend_tests-passing-blue)
-![Mock AI](https://img.shields.io/badge/AI-mocked-orange)
-![Simulated CRM](https://img.shields.io/badge/CRM-simulated-orange)
+<p align="center">
+  <img src="https://img.shields.io/badge/backend_tests-passing-slate" alt="Backend tests passing">
+  <img src="https://img.shields.io/badge/frontend_tests-passing-slate" alt="Frontend tests passing">
+  <img src="https://img.shields.io/badge/AI-mocked-cyan" alt="AI mocked">
+  <img src="https://img.shields.io/badge/CRM-simulated-cyan" alt="CRM simulated">
+</p>
 
 ## The problem this solves
 
