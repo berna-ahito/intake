@@ -1,5 +1,7 @@
 # Intake
 
+<img src="docs/assets/intake-header.svg" alt="Intake AI lead intake and CRM review system" width="100%">
+
 The problem this solves:
 Inbound leads and partner deal submissions often arrive through email, forms, spreadsheets, and partner handoffs. Sales teams waste time copying data into CRMs, checking for missing information, spotting duplicates, and deciding whether the lead is ready for follow-up. Intake centralizes that workflow. Uploaded document ingestion is planned but not implemented yet.
 
@@ -35,7 +37,7 @@ Current mocked behavior and Phase 1 limitations:
 
 Stack:
 - Backend: FastAPI, SQLAlchemy, Pydantic, SQLite for local development
-- Frontend: React, Vite, TypeScript, Tailwind CSS
+- Frontend: React, TypeScript, Tailwind CSS
 - Testing: Pytest for backend, Node test runner for the frontend API client
 
 Local development:
@@ -48,18 +50,18 @@ Local development:
    ```bash
    uvicorn app.main:app --reload
    ```
-3. Install frontend dependencies and start Vite in a separate terminal:
+3. Install frontend dependencies and start the frontend dev server in a separate terminal:
    ```bash
    cd frontend
    npm install
    npm run dev
    ```
-4. Open the Vite URL and test the review pipeline. Local frontend development calls the backend API separately.
+4. Open the frontend dev server URL and test the review pipeline. Local frontend development calls the backend API separately.
 
 Portfolio deployment:
 - The repository includes `render.yaml` for one Render web service.
 - Render installs backend dependencies, installs frontend dependencies, builds `frontend/dist`, and starts FastAPI.
-- In production, FastAPI serves the built Vite frontend for non-API routes and keeps API routes under `/api`.
+- In production, FastAPI serves the built React frontend for non-API routes and keeps API routes under `/api`.
 - Use `/api/health` as the health check path.
 
 Deployment environment variables:

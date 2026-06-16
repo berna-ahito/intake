@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" role="img" aria-labelledby="title desc">
+  <title id="title">Intake AI lead intake and CRM review system</title>
+  <desc id="desc">Turn messy lead submissions into structured CRM-ready records with mock AI extraction, human review, duplicate risk signals, simulated CRM sync, and audit logs.</desc>
+  <rect width="1200" height="360" rx="28" fill="#f8fafc"/>
+  <rect x="1" y="1" width="1198" height="358" rx="27" fill="none" stroke="#e2e8f0" stroke-width="2"/>
+  <rect x="40" y="40" width="1120" height="280" rx="24" fill="#0f172a"/>
+  <path d="M760 40h376c13.3 0 24 10.7 24 24v232c0 13.3-10.7 24-24 24H816c-43.1-60-61.8-156-56-280Z" fill="#111c34"/>
+  <path d="M828 84h236M828 128h190M828 172h236M828 216h160M828 260h214" stroke="#1e293b" stroke-width="2"/>
+
+  <g transform="translate(72 84)">
+    <rect width="112" height="112" rx="24" fill="#0b1220"/>
+    <rect x="1" y="1" width="110" height="110" rx="23" fill="none" stroke="#334155" stroke-width="2"/>
+    <path d="M27 32h16M22 54h22M30 76h15" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="24" cy="32" r="4.5" fill="#67e8f9"/>
+    <circle cx="19" cy="54" r="4.5" fill="#818cf8"/>
+    <circle cx="27" cy="76" r="4.5" fill="#67e8f9"/>
+    <path d="M51 56h14" stroke="#e0f2fe" stroke-width="5" stroke-linecap="round"/>
+    <path d="m62 42 14 14-14 14" fill="none" stroke="#67e8f9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="78" y="30" width="20" height="12" rx="3" fill="#c7d2fe"/>
+    <rect x="78" y="50" width="20" height="12" rx="3" fill="#67e8f9"/>
+    <rect x="78" y="70" width="20" height="12" rx="3" fill="#c7d2fe"/>
+    <path d="M84 36h8M84 56h8M84 76h8" stroke="#1e293b" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
+    <text x="216" y="119" fill="#f8fafc" font-size="56" font-weight="700">Intake</text>
+    <text x="216" y="153" fill="#a5b4fc" font-size="21" font-weight="600">AI lead intake and CRM review system</text>
+    <text x="216" y="203" fill="#e2e8f0" font-size="28" font-weight="600">Turn messy lead submissions into structured CRM-ready records.</text>
+  </g>
+
+  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="600">
+    <g transform="translate(216 242)">
+      <rect width="154" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+      <circle cx="21" cy="18" r="5" fill="#67e8f9"/>
+      <text x="36" y="23" fill="#e0f2fe">Mock AI extraction</text>
+    </g>
+    <g transform="translate(384 242)">
+      <rect width="129" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+      <circle cx="21" cy="18" r="5" fill="#818cf8"/>
+      <text x="36" y="23" fill="#e0f2fe">Human review</text>
+    </g>
+    <g transform="translate(527 242)">
+      <rect width="172" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+      <circle cx="21" cy="18" r="5" fill="#67e8f9"/>
+      <text x="36" y="23" fill="#e0f2fe">Duplicate risk signal</text>
+    </g>
+    <g transform="translate(713 242)">
+      <rect width="164" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+      <circle cx="21" cy="18" r="5" fill="#818cf8"/>
+      <text x="36" y="23" fill="#e0f2fe">Simulated CRM sync</text>
+    </g>
+    <g transform="translate(891 242)">
+      <rect width="100" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
+      <circle cx="21" cy="18" r="5" fill="#67e8f9"/>
+      <text x="36" y="23" fill="#e0f2fe">Audit trail</text>
+    </g>
+  </g>
+
+  <g opacity=".9">
+    <path d="M892 108h58M892 142h112M892 176h84M892 210h126" stroke="#67e8f9" stroke-width="4" stroke-linecap="round"/>
+    <rect x="844" y="96" width="30" height="24" rx="6" fill="#c7d2fe"/>
+    <rect x="844" y="130" width="30" height="24" rx="6" fill="#67e8f9"/>
+    <rect x="844" y="164" width="30" height="24" rx="6" fill="#c7d2fe"/>
+    <rect x="844" y="198" width="30" height="24" rx="6" fill="#67e8f9"/>
+  </g>
+</svg>

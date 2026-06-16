@@ -20,3 +20,13 @@ def ensure_sqlite_contract_columns(engine: Engine):
         for column_name, ddl in columns.items():
             if column_name not in existing:
                 connection.exec_driver_sql(f"ALTER TABLE submissions ADD COLUMN {ddl}")
+
+        legacy_sources = {
+            "partner": "partner_referral",
+            "upload": "csv_import",
+        }
+        for legacy_source, current_source in legacy_sources.items():
+            connection.exec_driver_sql(
+                "UPDATE submissions SET source = ? WHERE source = ?",
+                (current_source, legacy_source),
+            )
