@@ -1,145 +1,157 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 320" role="img" aria-labelledby="title desc">
-  <title id="title">Intake</title>
-  <desc id="desc">Intake AI lead intake and CRM review system</desc>
-
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 380" width="100%" height="100%">
+  <title>Intake Banner</title>
+  <desc>A clean product banner layout showing the Intake AI CRM system features and mock extraction preview.</desc>
   <defs>
-    <!-- Background Gradient -->
-    <linearGradient id="bg-grad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#0f172a"/>
-      <stop offset="100%" stop-color="#020617"/>
+    <linearGradient id="bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#F1F5F9" />
     </linearGradient>
-
-    <!-- Grid Pattern -->
-    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
-      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#1e293b" stroke-width="1" opacity="0.5"/>
-    </pattern>
-
-    <!-- Accent Glows -->
-    <radialGradient id="glow-left" cx="20%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#0ea5e9" stop-opacity="0"/>
-    </radialGradient>
-
-    <radialGradient id="glow-right" cx="80%" cy="50%" r="50%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.12"/>
-      <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#0f172a" flood-opacity="0.05" />
+    </filter>
+    <filter id="shadow-lg" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="12" flood-color="#0f172a" flood-opacity="0.08" />
+    </filter>
   </defs>
 
-  <!-- Base Background -->
-  <rect width="960" height="320" fill="url(#bg-grad)"/>
-  <rect width="960" height="320" fill="url(#grid)"/>
-  <rect width="960" height="320" fill="url(#glow-left)"/>
-  <rect width="960" height="320" fill="url(#glow-right)"/>
+  <!-- Banner Background -->
+  <rect width="1200" height="380" rx="24" fill="url(#bg-grad)" stroke="#E2E8F0" stroke-width="1"/>
 
-  <!-- Top / Bottom subtle border lines -->
-  <line x1="0" y1="0" x2="960" y2="0" stroke="#1e293b" stroke-width="2"/>
-  <line x1="0" y1="320" x2="960" y2="320" stroke="#1e293b" stroke-width="2"/>
-
-  <!-- Left Side: Brand and Value (x: 60) -->
-  <g transform="translate(60, 100)">
-    <!-- Logo icon & Wordmark -->
-    <g>
-      <rect width="40" height="40" rx="10" fill="#0ea5e9" fill-opacity="0.15" stroke="#0ea5e9" stroke-width="1.5"/>
-      <path d="M12 20h8 M12 26h16 M24 14l4 4-4 4" stroke="#38bdf8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      <text x="56" y="30" fill="#f8fafc" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="32" font-weight="800" letter-spacing="-0.5">Intake</text>
+  <!-- Left Side: Brand -->
+  <g transform="translate(80, 70)">
+    <!-- Logo Mark -->
+    <g transform="translate(0, 0)">
+      <rect x="0" y="0" width="48" height="48" rx="12" fill="#E0F2FE" />
+      <path d="M16 26 L22 32 L34 18" stroke="#0284C7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      <!-- Sparkle/AI star -->
+      <path d="M 36 6 Q 36 12 42 12 Q 36 12 36 18 Q 36 12 30 12 Q 36 12 36 6" fill="#06B6D4"/>
     </g>
 
-    <text x="0" y="90" fill="#f1f5f9" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600">AI lead intake and</text>
-    <text x="0" y="120" fill="#f1f5f9" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="22" font-weight="600">CRM review system</text>
+    <!-- Wordmark -->
+    <text x="64" y="34" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="800" fill="#0F172A" letter-spacing="-0.5">Intake</text>
 
-    <text x="0" y="160" fill="#94a3b8" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="16" font-weight="500">Messy leads to CRM-ready records</text>
+    <!-- Subtitle -->
+    <text x="0" y="100" font-family="system-ui, -apple-system, sans-serif" font-size="26" font-weight="600" fill="#1E293B" letter-spacing="-0.5">
+      AI lead <tspan fill="#0284C7">intake</tspan> and CRM review system
+    </text>
+
+    <!-- Value Line -->
+    <text x="0" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" fill="#475569">
+      Turn messy lead submissions into
+    </text>
+    <text x="0" y="166" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="400" fill="#475569">
+      structured CRM-ready records.
+    </text>
   </g>
 
-  <!-- Right Side: Workflow Illustration (x: 440) -->
-  <g transform="translate(440, 60)">
-    <!-- Main illustration container -->
-    <rect width="460" height="160" rx="16" fill="#0f172a" fill-opacity="0.7" stroke="#1e293b" stroke-width="1.5"/>
-
-    <!-- Messy side -->
-    <g transform="translate(30, 30)">
-      <path d="M0 10c10-5 20 15 30 0s15-10 25 5 M5 30c15 10 25-5 40 5s20 15 30-5 M10 50c20-10 30 20 45 0s20-15 35 5" fill="none" stroke="#334155" stroke-width="2" stroke-linecap="round"/>
-      <circle cx="10" cy="10" r="4" fill="#38bdf8"/>
-      <circle cx="45" cy="25" r="4" fill="#818cf8"/>
-      <circle cx="20" cy="45" r="4" fill="#0ea5e9"/>
-      <circle cx="70" cy="15" r="4" fill="#94a3b8"/>
-      <circle cx="80" cy="50" r="4" fill="#6366f1"/>
-
-      <!-- A messy text card -->
-      <rect x="0" y="70" width="80" height="30" rx="4" fill="#1e293b" stroke="#334155" stroke-width="1"/>
-      <path d="M10 80h40 M10 90h60" stroke="#64748b" stroke-width="2" stroke-linecap="round"/>
+  <!-- Bottom Chips Row -->
+  <g transform="translate(160, 300)">
+    <!-- Chip 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="164" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+      <circle cx="16" cy="18" r="4" fill="#0EA5E9"/>
+      <text x="90" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Mock AI extraction</text>
     </g>
 
-    <!-- Flow & AI -->
-    <g transform="translate(140, 60)">
-      <!-- Incoming connection -->
-      <path d="M0 20 L50 20" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-
-      <!-- AI Block -->
-      <rect x="50" y="0" width="60" height="40" rx="8" fill="#0ea5e9" fill-opacity="0.1" stroke="#0ea5e9" stroke-width="1.5"/>
-      <path d="M70 12l2 6 6 2-6 2-2 6-2-6-6-2 6-2z M82 14l1 3 3 1-3 1-1 3-1-3-3-1 3-1z" fill="#38bdf8"/>
-
-      <!-- Outgoing connection & arrow -->
-      <path d="M110 20 L160 20" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4 4" fill="none"/>
-      <path d="M152 14 L160 20 L152 26" fill="none" stroke="#38bdf8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Chip 2 -->
+    <g transform="translate(180, 0)">
+      <rect width="130" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+      <circle cx="16" cy="18" r="4" fill="#3B82F6"/>
+      <text x="73" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Human review</text>
     </g>
 
-    <!-- Structured side -->
-    <g transform="translate(320, 20)">
-      <!-- CRM Grid Container -->
-      <rect x="0" y="0" width="110" height="120" rx="8" fill="#1e293b" fill-opacity="0.4" stroke="#334155" stroke-width="1"/>
+    <!-- Chip 3 -->
+    <g transform="translate(326, 0)">
+      <rect width="190" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+      <circle cx="16" cy="18" r="4" fill="#06B6D4"/>
+      <text x="103" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Duplicate risk signal</text>
+    </g>
 
-      <!-- Row 1 (Ready) -->
-      <rect x="10" y="12" width="90" height="24" rx="4" fill="#0f172a" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.6"/>
-      <circle cx="20" cy="24" r="3" fill="#0ea5e9"/>
-      <rect x="30" y="22" width="20" height="4" rx="2" fill="#64748b"/>
-      <text x="65" y="27" fill="#0ea5e9" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="600">Ready</text>
+    <!-- Chip 4 -->
+    <g transform="translate(532, 0)">
+      <rect width="174" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+      <circle cx="16" cy="18" r="4" fill="#3B82F6"/>
+      <text x="95" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Simulated CRM sync</text>
+    </g>
 
-      <!-- Row 2 (Review) -->
-      <rect x="10" y="48" width="90" height="24" rx="4" fill="#0f172a" stroke="#818cf8" stroke-width="1" stroke-opacity="0.6"/>
-      <circle cx="20" cy="60" r="3" fill="#818cf8"/>
-      <rect x="30" y="58" width="25" height="4" rx="2" fill="#64748b"/>
-      <text x="62" y="63" fill="#818cf8" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="600">Review</text>
-
-      <!-- Row 3 (Synced) -->
-      <rect x="10" y="84" width="90" height="24" rx="4" fill="#0f172a" stroke="#3b82f6" stroke-width="1" stroke-opacity="0.6"/>
-      <circle cx="20" cy="96" r="3" fill="#3b82f6"/>
-      <rect x="30" y="94" width="20" height="4" rx="2" fill="#64748b"/>
-      <text x="62" y="99" fill="#3b82f6" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="8" font-weight="600">Synced</text>
+    <!-- Chip 5 -->
+    <g transform="translate(722, 0)">
+      <rect width="110" height="36" rx="18" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+      <circle cx="16" cy="18" r="4" fill="#64748B"/>
+      <text x="63" y="23" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#475569" text-anchor="middle">Audit trail</text>
     </g>
   </g>
 
-  <!-- Bottom: Feature Chips -->
-  <g transform="translate(0, 260)" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="12" font-weight="500" fill="#cbd5e1">
+  <!-- Right Side: Main Card -->
+  <g transform="translate(680, 40)">
+    <!-- Background Offset Layer -->
+    <rect x="16" y="16" width="340" height="200" rx="16" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1" opacity="0.8"/>
 
-    <g transform="translate(140, 0)">
-      <rect width="135" height="26" rx="13" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="13" r="4" fill="#0ea5e9"/>
-      <text x="28" y="17">Mock AI extraction</text>
-    </g>
+    <!-- Foreground Layer -->
+    <g filter="url(#shadow-lg)">
+      <rect x="0" y="0" width="340" height="200" rx="16" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
 
-    <g transform="translate(291, 0)">
-      <rect width="105" height="26" rx="13" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="13" r="4" fill="#38bdf8"/>
-      <text x="28" y="17">Human review</text>
-    </g>
+      <!-- Card Header -->
+      <path d="M0 16 C0 7.163 7.163 0 16 0 L324 0 C332.837 0 340 7.163 340 16 L340 40 L0 40 Z" fill="#F8FAFC" />
+      <line x1="0" y1="40" x2="340" y2="40" stroke="#F1F5F9" stroke-width="1" />
+      <circle cx="20" cy="20" r="4" fill="#CBD5E1" />
+      <circle cx="34" cy="20" r="4" fill="#CBD5E1" />
+      <circle cx="48" cy="20" r="4" fill="#CBD5E1" />
+      <text x="320" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#64748B" text-anchor="end">Lead Inbox</text>
 
-    <g transform="translate(412, 0)">
-      <rect width="145" height="26" rx="13" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="13" r="4" fill="#818cf8"/>
-      <text x="28" y="17">Duplicate risk signal</text>
-    </g>
+      <!-- Row 1 -->
+      <g transform="translate(16, 56)">
+        <rect width="308" height="36" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+        <rect x="12" y="12" width="60" height="12" rx="4" fill="#CBD5E1" />
+        <rect x="80" y="12" width="100" height="12" rx="4" fill="#E2E8F0" />
+        <circle cx="290" cy="18" r="4" fill="#3B82F6"/>
+      </g>
 
-    <g transform="translate(573, 0)">
-      <rect width="135" height="26" rx="13" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="13" r="4" fill="#3b82f6"/>
-      <text x="28" y="17">Simulated CRM sync</text>
-    </g>
+      <!-- Row 2 -->
+      <g transform="translate(16, 100)" filter="url(#shadow)">
+        <rect width="308" height="36" rx="6" fill="#FFFFFF" stroke="#94A3B8" stroke-width="1" />
+        <rect x="12" y="12" width="80" height="12" rx="4" fill="#64748B" />
+        <rect x="100" y="12" width="120" height="12" rx="4" fill="#94A3B8" />
+        <circle cx="290" cy="18" r="4" fill="#64748B"/>
+      </g>
 
-    <g transform="translate(724, 0)">
-      <rect width="95" height="26" rx="13" fill="#1e293b" fill-opacity="0.8" stroke="#334155" stroke-width="1"/>
-      <circle cx="16" cy="13" r="4" fill="#0ea5e9"/>
-      <text x="28" y="17">Audit trail</text>
+      <!-- Row 3 -->
+      <g transform="translate(16, 144)">
+        <rect width="308" height="36" rx="6" fill="#F8FAFC" stroke="#E2E8F0" stroke-width="1"/>
+        <rect x="12" y="12" width="50" height="12" rx="4" fill="#CBD5E1" />
+        <rect x="70" y="12" width="110" height="12" rx="4" fill="#E2E8F0" />
+        <circle cx="290" cy="18" r="4" fill="#06B6D4"/>
+      </g>
     </g>
   </g>
+
+  <!-- Right Connectors and Chips -->
+  <!-- Synced -->
+  <path d="M 1004 114 L 1040 114" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <g transform="translate(1040, 100)">
+     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#3B82F6" text-anchor="middle">Synced</text>
+  </g>
+
+  <!-- Review -->
+  <path d="M 1004 158 L 1040 158" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <g transform="translate(1040, 144)">
+     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#475569" text-anchor="middle">Review</text>
+  </g>
+
+  <!-- Extracted -->
+  <path d="M 1004 202 L 1040 202" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <g transform="translate(1040, 188)">
+     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#06B6D4" text-anchor="middle">Extracted</text>
+  </g>
+
+  <!-- Low risk -->
+  <path d="M 1004 202 L 1018 202 Q 1024 202 1024 208 L 1024 234 Q 1024 240 1030 240 L 1040 240" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="3 3" fill="none"/>
+  <g transform="translate(1040, 226)">
+     <rect width="80" height="28" rx="6" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" filter="url(#shadow)"/>
+     <text x="40" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="600" fill="#0EA5E9" text-anchor="middle">Low risk</text>
+  </g>
+
 </svg>
