@@ -2,12 +2,12 @@
   <img src="docs/assets/intake-header.svg" alt="Intake product header" width="100%">
 </p>
 
-## 
+<h1 align="center">Intake</h1>
 
 <h2 align="center">Turn messy lead submissions into structured CRM-ready records.</h2>
 
 <p align="center">
-  Intake is an AI lead intake and CRM review system. It receives unstructured inbound leads from forms, emails, or partner submissions and processes them into structured records. The system features mock AI extraction with confidence scores, duplicate risk signals, human review, simulated CRM sync, and an audit log.
+  Intake is an AI lead intake and CRM review system. It receives unstructured inbound leads from forms, emails, or partner submissions and processes them into structured records. The system features mock AI extraction with a confidence score, duplicate risk signals, human review, simulated CRM sync, and an audit log.
 </p>
 
 <p align="center">
@@ -18,6 +18,12 @@
 </p>
 
 <hr>
+
+## Live demo
+
+Live demo: https://intake-aykt.onrender.com
+
+The Render free service may take a short moment to wake up if it has been inactive.
 
 ## The problem this solves
 
@@ -33,7 +39,7 @@ A reviewer can watch messy submissions become structured lead records. The syste
 | --- | --- |
 | Lead submission intake | Stores messy inbound lead text from supported sources such as forms, emails, partner referrals, webhooks, and CSV-style imports. |
 | Mock AI extraction | Converts messy text into structured lead fields for review. |
-| Confidence and missing-info review | Shows confidence signals and highlights information that needs human attention. |
+| Confidence and missing-info review | Shows a confidence score and highlights information that needs human attention. |
 | Duplicate risk signal | Surfaces a risk indicator for possible duplicate leads without claiming full duplicate matching. |
 | Human review workflow | Lets a reviewer correct extracted fields, mark records for review, or approve records for CRM readiness. |
 | Simulated CRM sync | Persists simulated CRM sync metadata without calling a real CRM. |
@@ -49,8 +55,8 @@ A reviewer can watch messy submissions become structured lead records. The syste
 
 ## Demo flow
 
-1. Start the application by running the backend and frontend separately.
-2. Open the frontend dashboard to see seeded or created lead submissions.
+1. Open the live demo or run the backend and frontend locally.
+2. Create a sample lead or open a seeded local submission.
 3. Click on a messy lead submission to view the raw text and the mock AI-extracted fields.
 4. Review the confidence score, missing information, and duplicate risk signal.
 5. Make a manual correction to an uncertain field during human review.
@@ -66,7 +72,7 @@ A reviewer can watch messy submissions become structured lead records. The syste
 | Database | SQLite for local development, Postgres-ready through `DATABASE_URL` |
 | Frontend | React, TypeScript, Tailwind CSS |
 | Testing | Pytest for backend, Node test runner for frontend API client |
-| Deployment prep | Render single-service configuration |
+| Deployment | Render single-service configuration with external Postgres |
 
 ## Stable API contract
 
@@ -90,58 +96,3 @@ Start the backend:
 cd backend
 pip install -r requirements.txt
 uvicorn app.main:app --reload
-```
-
-Start the frontend in a separate terminal:
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Local frontend development calls the backend API separately.
-
-## Portfolio deployment
-
-The repository includes `render.yaml` for one Render web service.
-
-Render installs backend dependencies, installs frontend dependencies, builds `frontend/dist`, and starts FastAPI. In production, FastAPI serves the built React frontend for non-API routes and keeps API routes under `/api`.
-
-Use `/api/health` as the health check path.
-
-A persistent deployed demo should use Postgres through `DATABASE_URL`. SQLite is for local development only. Do not commit secrets.
-
-## Security notes
-
-No real secrets are committed to the repository. Environment values should stay in local `.env` files or deployment provider settings.
-
-Pydantic models are used for input validation. Every mock AI extraction, human review, approval, and simulated CRM sync action is recorded in the audit log.
-
-This MVP does not include real authentication yet.
-
-## Tests
-
-Run backend tests from the backend directory:
-
-```bash
-cd backend
-python -m pytest
-```
-
-Run frontend tests from the frontend directory:
-
-```bash
-cd frontend
-npm test
-```
-
-## Project structure
-
-| Path             | Purpose                                                          |
-| ---------------- | ---------------------------------------------------------------- |
-| `backend/app/`   | FastAPI backend, database models, routers, schemas, and services |
-| `backend/tests/` | Backend test suite                                               |
-| `frontend/`      | React frontend application                                       |
-| `docs/`          | Architecture, security notes, case study, and demo script        |
-| `render.yaml`    | Render single-service deployment configuration                   |
