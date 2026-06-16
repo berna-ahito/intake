@@ -17,7 +17,7 @@
 </p>
 
 <p align="center">
-  <a href="https://intake-aykt.onrender.com">Live Demo</a> ┬╖ <a href="#core-features">Features</a> ┬╖ <a href="docs/ARCHITECTURE.md">Architecture</a> ┬╖ <a href="#stable-api-contract">API</a> ┬╖ <a href="#local-development">Run Locally</a> ┬╖ <a href="#portfolio-deployment">Deployment</a>
+  <a href="https://intake-aykt.onrender.com">Live Demo</a> <a href="#core-features">Features</a> <a href="docs/ARCHITECTURE.md">Architecture</a>  <a href="#stable-api-contract">API</a> <a href="#local-development">Run Locally</a> <a href="#portfolio-deployment">Deployment</a>
 </p>
 
 <hr>
