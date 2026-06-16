@@ -1,65 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 280" role="img" aria-labelledby="title desc">
-  <title id="title">Intake AI lead intake and CRM review system</title>
-  <desc id="desc">Turn messy lead submissions into structured CRM-ready records with mock AI extraction, human review, duplicate risk signals, simulated CRM sync, and audit logs.</desc>
-  <rect width="1120" height="280" rx="24" fill="#0f172a"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 160" role="img" aria-labelledby="title desc">
+  <title id="title">Intake</title>
+  <desc id="desc">Data flow from messy leads to structured CRM records</desc>
+  <style>
+    .text-main { fill: #0f172a; }
+    .stroke-main { stroke: #64748b; }
+    @media (prefers-color-scheme: dark) {
+      .text-main { fill: #f8fafc; }
+      .stroke-main { stroke: #94a3b8; }
+    }
+  </style>
+  <g transform="translate(240, 40)">
+    <!-- Messy side -->
+    <path class="stroke-main" d="M10 20h24M5 40h36M15 60h20" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="10" cy="20" r="5" fill="#06b6d4"/>
+    <circle cx="5" cy="40" r="5" fill="#1d4ed8"/>
+    <circle cx="15" cy="60" r="5" fill="#06b6d4"/>
 
-  <path d="M720 0h376c13.3 0 24 10.7 24 24v232c0 13.3-10.7 24-24 24H776c-43.1-60-61.8-156-56-280Z" fill="#111c34"/>
-  <path d="M788 44h236M788 88h190M788 132h236M788 176h160M788 220h214" stroke="#1e293b" stroke-width="2"/>
+    <!-- Arrow -->
+    <path class="stroke-main" d="M65 40h34" stroke-width="4" stroke-linecap="round"/>
+    <path d="m89 30 10 10-10 10" fill="none" stroke="#06b6d4" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 
-  <g transform="translate(32 44)">
-    <rect width="112" height="112" rx="24" fill="#0b1220"/>
-    <rect x="1" y="1" width="110" height="110" rx="23" fill="none" stroke="#334155" stroke-width="2"/>
-    <path d="M27 32h16M22 54h22M30 76h15" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/>
-    <circle cx="24" cy="32" r="4.5" fill="#67e8f9"/>
-    <circle cx="19" cy="54" r="4.5" fill="#818cf8"/>
-    <circle cx="27" cy="76" r="4.5" fill="#67e8f9"/>
-    <path d="M51 56h14" stroke="#e0f2fe" stroke-width="5" stroke-linecap="round"/>
-    <path d="m62 42 14 14-14 14" fill="none" stroke="#67e8f9" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round"/>
-    <rect x="78" y="30" width="20" height="12" rx="3" fill="#c7d2fe"/>
-    <rect x="78" y="50" width="20" height="12" rx="3" fill="#67e8f9"/>
-    <rect x="78" y="70" width="20" height="12" rx="3" fill="#c7d2fe"/>
-    <path d="M84 36h8M84 56h8M84 76h8" stroke="#1e293b" stroke-width="2.4" stroke-linecap="round"/>
-  </g>
+    <!-- Structured side -->
+    <rect x="120" y="15" width="24" height="10" rx="3" fill="#1d4ed8"/>
+    <rect x="120" y="35" width="24" height="10" rx="3" fill="#06b6d4"/>
+    <rect x="120" y="55" width="24" height="10" rx="3" fill="#1d4ed8"/>
+    <path class="stroke-main" d="M154 20h20M154 40h20M154 60h20" stroke-width="4" stroke-linecap="round"/>
 
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">
-    <text x="176" y="79" fill="#f8fafc" font-size="56" font-weight="700">Intake</text>
-    <text x="176" y="113" fill="#a5b4fc" font-size="21" font-weight="600">AI lead intake and CRM review system</text>
-    <text x="176" y="163" fill="#e2e8f0" font-size="28" font-weight="600">Turn messy lead submissions into structured CRM-ready records.</text>
-  </g>
-
-  <g font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="16" font-weight="600">
-    <g transform="translate(176 202)">
-      <rect width="170" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
-      <circle cx="21" cy="18" r="5" fill="#67e8f9"/>
-      <text x="36" y="23" fill="#e0f2fe">Mock AI extraction</text>
-    </g>
-    <g transform="translate(358 202)">
-      <rect width="144" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
-      <circle cx="21" cy="18" r="5" fill="#818cf8"/>
-      <text x="36" y="23" fill="#e0f2fe">Human review</text>
-    </g>
-    <g transform="translate(514 202)">
-      <rect width="180" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
-      <circle cx="21" cy="18" r="5" fill="#67e8f9"/>
-      <text x="36" y="23" fill="#e0f2fe">Duplicate risk signal</text>
-    </g>
-    <g transform="translate(706 202)">
-      <rect width="180" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
-      <circle cx="21" cy="18" r="5" fill="#818cf8"/>
-      <text x="36" y="23" fill="#e0f2fe">Simulated CRM sync</text>
-    </g>
-    <g transform="translate(898 202)">
-      <rect width="110" height="36" rx="18" fill="#1e293b" stroke="#334155"/>
-      <circle cx="21" cy="18" r="5" fill="#67e8f9"/>
-      <text x="36" y="23" fill="#e0f2fe">Audit trail</text>
-    </g>
-  </g>
-
-  <g opacity=".9">
-    <path d="M852 68h58M852 102h112M852 136h84M852 170h126" stroke="#67e8f9" stroke-width="4" stroke-linecap="round"/>
-    <rect x="804" y="56" width="30" height="24" rx="6" fill="#c7d2fe"/>
-    <rect x="804" y="90" width="30" height="24" rx="6" fill="#67e8f9"/>
-    <rect x="804" y="124" width="30" height="24" rx="6" fill="#c7d2fe"/>
-    <rect x="804" y="158" width="30" height="24" rx="6" fill="#67e8f9"/>
+    <!-- Wordmark -->
+    <text x="200" y="58" class="text-main" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="46" font-weight="800">Intake</text>
   </g>
 </svg>
