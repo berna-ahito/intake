@@ -2,7 +2,9 @@
   <img src="docs/assets/intake-header.svg" alt="Intake product header" width="100%">
 </p>
 
-## <p align="center">
+## 
+
+<p align="center">
   <strong>Turn messy lead submissions into structured CRM-ready records.</strong>
 </p>
 
