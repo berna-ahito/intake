@@ -1,6 +1,19 @@
 import type { Submission, SubmissionCreate, SubmissionReview, AuditEvent, HealthCheck } from './types';
 
-const API_BASE_URL = import.meta.env?.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
+type ApiImportMetaEnv = {
+  VITE_API_BASE_URL?: string;
+  PROD?: boolean;
+};
+
+export function getApiBaseUrl(env: ApiImportMetaEnv | undefined): string {
+  if (env?.VITE_API_BASE_URL !== undefined) {
+    return env.VITE_API_BASE_URL;
+  }
+
+  return env?.PROD ? '' : 'http://127.0.0.1:8000';
+}
+
+const API_BASE_URL = getApiBaseUrl(import.meta.env);
 
 function getErrorDetail(errorText: string) {
   try {
