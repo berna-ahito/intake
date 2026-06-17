@@ -1,7 +1,17 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 
-import { api } from '../src/api/client.ts';
+import { api, getApiBaseUrl } from '../src/api/client.ts';
+
+test('getApiBaseUrl resolves configured, production, and local fallback URLs', () => {
+  assert.equal(
+    getApiBaseUrl({ VITE_API_BASE_URL: 'https://api.example.com', PROD: true }),
+    'https://api.example.com',
+  );
+  assert.equal(getApiBaseUrl({ PROD: true }), '');
+  assert.equal(getApiBaseUrl({ PROD: false }), 'http://127.0.0.1:8000');
+  assert.equal(getApiBaseUrl(undefined), 'http://127.0.0.1:8000');
+});
 
 test('reviewSubmission sends backend-compatible review action payload', async () => {
   let captured: { url?: string; options?: RequestInit } = {};
